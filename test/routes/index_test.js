@@ -1,18 +1,15 @@
-const chai = require('chai');
+const request = require('supertest');
 const { expect } = require('chai');
-const chaiHttp = require('chai-http');
 
-chai.use(chaiHttp);
 const app = require('../../app.js');
 
-describe('Root path', () => {
-  it('returns greeting', () => {
-    chai.request(app)
+describe('Root path', async () => {
+  it('returns greeting', async () => {
+    const res = await request(app)
       .get('/')
-      .end((err, res) => {
-        expect(err).to.be.null; // eslint-disable-line no-unused-expressions
-        expect(res).to.have.status(200);
-        expect(res.text).to.equal('oh hai!');
-      });
+      .expect(200);
+
+    expect(res.err).to.be.undefined; // eslint-disable-line no-unused-expressions
+    expect(res.text).to.equal('oh hai!');
   });
 });

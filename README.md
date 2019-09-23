@@ -5,6 +5,7 @@
 ### get this puppy up and running:
 * Fork, Clone, and yarn install
 * run tests: `$ yarn test`
+* run linter: `$ yarn lint`
 * stand it up: `$ yarn start`
 
 ### how did this get made?
@@ -29,47 +30,41 @@
     * run test, change code, run test from here on out...
     * change test to expect true to equal true
 1. get rid of view cruft
-    * `$ yarn add --dev chai-http`
+    * `$ yarn add --dev supertest`
     * Add tests: first under `/test/routes/index_test.js`, second under `test/routes/users_test.js`
 
         ```js
-        const chai = require('chai')
-        const expect = require('chai').expect
-        const chaiHttp = require('chai-http');
+        const request = require('supertest');
+        const { expect } = require('chai');
 
-        chai.use(chaiHttp);
         const app = require('../../app.js');
 
-        describe('Root path', function() {
-          it('returns greeting', function() {
-            chai.request(app)
+        describe('Root path', async () => {
+          it('returns greeting', async () => {
+            const res = await request(app)
               .get('/')
-              .end(function (err, res) {
-                expect(err).to.be.null;
-                expect(res).to.have.status(200);
-                expect(res.text).to.equal('oh hai!');
-              });
+              .expect(200);
+
+            expect(res.err).to.be.undefined; // eslint-disable-line no-unused-expressions
+            expect(res.text).to.equal('oh hai!');
           });
         });
         ```
 
         ```js
-        const chai = require('chai')
-        const expect = require('chai').expect
-        const chaiHttp = require('chai-http');
+        const request = require('supertest');
+        const { expect } = require('chai');
 
-        chai.use(chaiHttp);
         const app = require('../../app.js');
 
-        describe('User path', function() {
-          it('returns reminder to update route', function() {
-            chai.request(app)
+        describe('User', async () => {
+          it('root path returns reminder to update route', async () => {
+            const res = await request(app)
               .get('/users')
-              .end(function (err, res) {
-                expect(err).to.be.null;
-                expect(res).to.have.status(200);
-                expect(res.text).to.equal('respond with a reeesource');
-              });
+              .expect(200);
+
+            expect(res.err).to.be.undefined; // eslint-disable-line no-unused-expressions
+            expect(res.text).to.equal('respond with a reeeeeesource');
           });
         });
         ```
