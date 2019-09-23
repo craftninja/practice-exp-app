@@ -1,7 +1,7 @@
-const expect = require('chai').expect
+const { expect } = require('chai');
 
-describe('Basic test', function() {
-  it('should equate true to true', function() {
+describe('Basic test', () => {
+  it('should equate true to true', () => {
     expect(true).to.equal(true);
   });
 });

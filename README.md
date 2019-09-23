@@ -2,6 +2,11 @@
 
 ### messing around with the newer versions of things, this may end up functionally identical to node express api.
 
+### get this puppy up and running:
+* Fork, Clone, and yarn install
+* run tests: `$ yarn test`
+* stand it up: `$ yarn start`
+
 ### how did this get made?
 
 1. barebones structure
@@ -73,3 +78,10 @@
     * Remove cruft:
       * view directory and references
       * public directory and references
+1. Add a linter
+    * `$ yarn add eslint --dev`
+    * add lint script to package.json: `"lint": "eslint --init"` and run to create basic setup
+    * update script to run linter: "lint": "eslint --ignore-path .gitignore .",
+    * continuously run linter after any code changes
+    * add `mocha: true` to the `exports.env` section
+    * review errors and update repository
