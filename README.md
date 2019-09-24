@@ -1,9 +1,10 @@
 # README
 
-### messing around with the newer versions of things, this may end up functionally identical to node express api.
+### messing around with the newer versions of things, this may end up functionally identical to node express api but with sessions.
 
 ### get this puppy up and running:
 * Fork, Clone, and yarn install
+* create databases: `$ createdb practice_exp_app_test` AND `$ createdb practice_exp_app_development`
 * run tests: `$ yarn test`
 * run linter: `$ yarn lint`
 * stand it up: `$ yarn start`
@@ -93,3 +94,23 @@
     * continuously run linter after any code changes
     * add `mocha: true` to the `exports.env` section
     * review errors and update repository
+1. User can sign up and receive session cookie
+    * Add a test to `/test/routes/users_test.js`
+
+        ```js
+        it('can sign up', async () => {
+          const res = await request(app)
+            .post('/users')
+            .send({
+              firstName: 'Elowyn',
+              lastName: 'Platzer Bartel',
+              email: 'elowyn@example.com',
+              birthYear: 2015,
+              student: true,
+              password: 'password',
+            })
+            .expect(200);
+
+          expect(res.cookie).not.to.be.undefined;
+        ```
+1. Holy halibut, check that diff.
