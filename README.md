@@ -8,6 +8,19 @@
 * run linter: `$ yarn lint`
 * stand it up: `$ yarn start`
 
+### curl
+* No cookies: `$ curl http://localhost:3000/`
+* store a cookie to reuse: `$ curl -c ./tmp/curlCookies http://localhost:3000/`
+* use a stored cookie: `$ curl -b ./tmp/curlCookies http://localhost:3000/`
+
+### references
+* [Express](https://expressjs.com/)
+* [Mocha](https://mochajs.org)
+* [Chai (just using expect for now... might switch to expect)](https://www.chaijs.com)
+* [How to use cookies with curl](https://makandracards.com/makandra/48262-how-to-use-cookies-with-curl)
+* [Stop using JWT for sessions](http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/)
+
+
 ### how did this get made?
 
 1. barebones structure
