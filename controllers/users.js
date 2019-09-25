@@ -8,9 +8,7 @@ exports.create = async (req, res) => {
     res.json({ user });
   } else {
     const serializedUser = await userSerializer(user);
-    // const token = jwt.sign({ user: serializedUser }, process.env.JWT_SECRET);
-    // res.json({ jwt: token, user: serializedUser });
-    // AND SOME KINDA SESSION
+    req.session.userId = user.id
     res.json({ user: serializedUser });
   }
 };

@@ -28,17 +28,17 @@ describe('User', async () => {
       })
       .expect(200);
 
-    expect(res.cookie).not.to.be.undefined; // eslint-disable-line no-unused-expressions
-    expect(res.cookie).toBe('undefined');
-    expect(res.body.user.id).not.toBe(undefined);
-    expect(res.body.user.firstName).toEqual('Elowyn');
-    expect(res.body.user.lastName).toEqual('Platzer Bartel');
-    expect(res.body.user.email).toEqual('elowyn@example.com');
-    expect(res.body.user.birthYear).toEqual(2015);
-    expect(res.body.user.student).toEqual(true);
+    expect(res.headers['set-cookie']).not.to.be.undefined; // eslint-disable-line no-unused-expressions
+    expect(res.headers['set-cookie'][0]).to.include('connect.sid');
+    expect(res.body.user.id).not.to.be.undefined;
+    expect(res.body.user.firstName).to.equal('Elowyn');
+    expect(res.body.user.lastName).to.equal('Platzer Bartel');
+    expect(res.body.user.email).to.equal('elowyn@example.com');
+    expect(res.body.user.birthYear).to.equal(2015);
+    expect(res.body.user.student).to.equal(true);
 
-    expect(res.body.user.passwordDigest).toEqual(undefined);
-    expect(res.body.user.createdAt).toEqual(undefined);
-    expect(res.body.user.updatedAt).toEqual(undefined);
+    expect(res.body.user.passwordDigest).to.equal(undefined);
+    expect(res.body.user.createdAt).to.equal(undefined);
+    expect(res.body.user.updatedAt).to.equal(undefined);
   });
 });
