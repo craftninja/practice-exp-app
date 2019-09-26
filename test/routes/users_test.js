@@ -15,7 +15,7 @@ describe('User', async () => {
     expect(res.text).to.equal('respond with a resource');
   });
 
-  it('can sign up', async () => {
+  it('can sign up with unique email', async () => {
     const res = await request(app)
       .post('/users')
       .send({
@@ -40,5 +40,21 @@ describe('User', async () => {
     expect(res.body.user.passwordDigest).to.equal(undefined);
     expect(res.body.user.createdAt).to.equal(undefined);
     expect(res.body.user.updatedAt).to.equal(undefined);
+
+    const dupEmailRes = await request(app)
+      .post('/users')
+      .send({
+        firstName: 'Elowyn',
+        lastName: 'Platzer Bartel',
+        email: 'elowyn@example.com',
+        birthYear: 2015,
+        student: true,
+        password: 'password',
+      })
+      .expect(200);
+
+    expect(dupEmailRes.body.user.id).to.be.undefined;
+    expect(dupEmailRes.body.user.errors).to.deep.equal(['Email already taken']);
+    expect(dupEmailRes.headers['set-cookie']).to.be.undefined; // eslint-disable-line no-unused-expressions
   });
 });
