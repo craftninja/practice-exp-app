@@ -1,6 +1,8 @@
 const request = require('supertest');
 const { expect } = require('chai');
 
+require('../helpers/testSetup');
+
 const app = require('../../app.js');
 
 describe('Root path', async () => {
