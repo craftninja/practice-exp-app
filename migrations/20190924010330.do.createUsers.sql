@@ -9,3 +9,6 @@ CREATE TABLE IF NOT EXISTS "users"(
   "createdAt"                       TIMESTAMP         NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updatedAt"                       TIMESTAMP         NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE "users"
+ADD CONSTRAINT uc_email UNIQUE("email");
