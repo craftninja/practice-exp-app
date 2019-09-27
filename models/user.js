@@ -41,10 +41,11 @@ exports.find = async id => {
   return user;
 };
 
-exports.findByEmail = async (email) => {
+exports.findByEmail = async email => {
   const user = (await query(
     'SELECT * FROM "users" WHERE "email" = $1 LIMIT 1',
-    [email])).rows[0];
+    [email],
+  )).rows[0];
   return user;
 };
 

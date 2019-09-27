@@ -13,7 +13,7 @@ describe('User', async () => {
       birthYear: 2015,
       student: true,
       password: 'password',
-    })
+    });
 
     const duplicateUser = await User.create({
       firstName: 'Elowyn',
@@ -22,7 +22,7 @@ describe('User', async () => {
       birthYear: 2015,
       student: true,
       password: 'password',
-    })
+    });
 
     expect(duplicateUser).to.deep.equal({ errors: ['Email already taken'] });
   });

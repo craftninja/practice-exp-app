@@ -8,15 +8,17 @@ exports.create = async (req, res) => {
     res.json({ user });
   } else {
     const serializedUser = await userSerializer(user);
-    req.session.userId = user.id
+    req.session.userId = user.id;
     res.json({ user: serializedUser });
   }
 };
 
 exports.me = async (req, res, next) => {
-  if (!req.session.userId) return next();
-
-  const user = await User.find(req.session.userId);
-  const serializedUser = await userSerializer(user);
-  res.json({ user: serializedUser });
-}
+  if (!req.session.userId) {
+    next();
+  } else {
+    const user = await User.find(req.session.userId);
+    const serializedUser = await userSerializer(user);
+    res.json({ user: serializedUser });
+  }
+};
