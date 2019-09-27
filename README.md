@@ -4,10 +4,11 @@
 
 ### get this puppy up and running:
 * Fork, Clone, and yarn install
-* create databases: `$ createdb practice_exp_app_test` AND `$ createdb practice_exp_app_development`
-* run tests: `$ yarn test`
-* run linter: `$ yarn lint`
-* stand it up: `$ yarn start`
+* Copy `.env.example` to `.env` and update any necessary envs
+* Create databases: `$ createdb practice_exp_app_test` AND `$ createdb practice_exp_app_development`
+* Run tests: `$ yarn test`
+* Run linter: `$ yarn lint`
+* Stand it up: `$ yarn start`
 
 ### curl
 * No cookies: `$ curl http://localhost:3000/`
@@ -18,6 +19,7 @@
 * [Express](https://expressjs.com/)
 * [Mocha](https://mochajs.org)
 * [Chai (just using expect for now... might switch to expect)](https://www.chaijs.com)
+* [express-session](https://www.npmjs.com/package/express-session) and [connect-pg-simple](https://www.npmjs.com/package/connect-pg-simple)
 * [How to use cookies with curl](https://makandracards.com/makandra/48262-how-to-use-cookies-with-curl)
 * [Stop using JWT for sessions](http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/)
 
