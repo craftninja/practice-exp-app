@@ -12,7 +12,7 @@
 ### curl
 * No cookies: `$ curl http://localhost:3000/`
 * Sign up and store a cookie to reuse: `$ curl -c ./tmp/curlCookies -X POST -H "Content-Type: application/json" -d '{"email":"elowyn@example.com", "password": "password", "firstName": "Elowyn", "lastName": "Platzer Bartel", "birthYear": "2015", "student": "true"}' http://localhost:3000/users`
-* use a stored cookie: `$ curl -b ./tmp/curlCookies http://localhost:3000/`
+* use a stored cookie: `$ curl -b ./tmp/curlCookies http://localhost:3000/users/me`
 
 ### references
 * [Express](https://expressjs.com/)
