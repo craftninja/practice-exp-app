@@ -12,3 +12,11 @@ exports.create = async (req, res) => {
     res.json({ user: serializedUser });
   }
 };
+
+exports.me = async (req, res, next) => {
+  if (!req.session.userId) return next();
+
+  const user = await User.find(req.session.userId);
+  const serializedUser = await userSerializer(user);
+  res.json({ user: serializedUser });
+}
