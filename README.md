@@ -24,7 +24,7 @@
 * [Stop using JWT for sessions](http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/)
 
 
-### how did this get made?
+### how did this get started?
 
 1. barebones structure
     * `$ npx express-generator --no-view --git practice-exp-app`, cd into directory, and open in text editor
@@ -96,23 +96,3 @@
     * continuously run linter after any code changes
     * add `mocha: true` to the `exports.env` section
     * review errors and update repository
-1. User can sign up and receive session cookie
-    * Add a test to `/test/routes/users_test.js`
-
-        ```js
-        it('can sign up', async () => {
-          const res = await request(app)
-            .post('/users')
-            .send({
-              firstName: 'Elowyn',
-              lastName: 'Platzer Bartel',
-              email: 'elowyn@example.com',
-              birthYear: 2015,
-              student: true,
-              password: 'password',
-            })
-            .expect(200);
-
-          expect(res.cookie).not.to.be.undefined;
-        ```
-1. Holy halibut, check that diff.
