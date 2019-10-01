@@ -14,11 +14,7 @@ exports.create = async (req, res) => {
 };
 
 exports.me = async (req, res, next) => {
-  if (!req.session.userId) {
-    next();
-  } else {
-    const user = await User.find(req.session.userId);
-    const serializedUser = await userSerializer(user);
-    res.json({ user: serializedUser });
-  }
+  const user = await User.find(req.session.userId);
+  const serializedUser = await userSerializer(user);
+  res.json({ user: serializedUser });
 };
