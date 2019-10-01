@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "db:createMigration": "node ./lib/createMigrations.js",
     "db:migrate": "node postgrator.js",
     "db:migrate:test": "NODE_ENV=test node postgrator.js",
-    "db:createMigration": "node ./lib/createMigrations.js",
     "lint": "eslint --ignore-path .gitignore .",
     "start": "node ./bin/www",
     "test": "mocha --recursive --exit"
