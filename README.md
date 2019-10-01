@@ -19,6 +19,7 @@
 * [Express](https://expressjs.com/)
 * [Mocha](https://mochajs.org)
 * [Chai (just using expect for now... might switch to expect)](https://www.chaijs.com)
+* [PG (aka node-postgres)](https://node-postgres.com/)
 * [express-session](https://www.npmjs.com/package/express-session) and [connect-pg-simple](https://www.npmjs.com/package/connect-pg-simple)
 * [How to use cookies with curl](https://makandracards.com/makandra/48262-how-to-use-cookies-with-curl)
 * [Stop using JWT for sessions](http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/)
