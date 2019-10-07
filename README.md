@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/craftninja/practice-exp-app.svg?style=svg)](https://circleci.com/gh/craftninja/practice-exp-app)
+
 # README
 
 ### messing around with the newer versions of things, this may end up functionally identical to node express api but with sessions.
