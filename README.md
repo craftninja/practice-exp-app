@@ -1,4 +1,6 @@
-[![CircleCI](https://circleci.com/gh/craftninja/practice-exp-app.svg?style=svg)](https://circleci.com/gh/craftninja/practice-exp-app)
+* [![CircleCI](https://circleci.com/gh/craftninja/practice-exp-app.svg?style=svg)](https://circleci.com/gh/craftninja/practice-exp-app)
+* [![Maintainability](https://api.codeclimate.com/v1/badges/2cbe1136e57e26ca6749/maintainability)](https://codeclimate.com/github/craftninja/practice-exp-app/maintainability)
+* [![Test Coverage](https://api.codeclimate.com/v1/badges/2cbe1136e57e26ca6749/test_coverage)](https://codeclimate.com/github/craftninja/practice-exp-app/test_coverage)
 
 # README
 
