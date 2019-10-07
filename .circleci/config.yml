@@ -36,4 +36,9 @@ jobs:
             yarn db:migrate:test
           environment:
             TEST_DATABASE_URL: postgres://user@localhost:5432/exp_starter_api_test
-      - run: yarn lint; yarn test;
+      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      - run: chmod +x ./cc-test-reporter
+      - run: sudo mkdir -p $CIRCLE_TEST_REPORTS/phpunit
+      - run: ./cc-test-reporter before-build
+      - run: yarn lint; yarn coverage; yarn report
+      - run: ./cc-test-reporter after-build -t lcov --exit-code $?
