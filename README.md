@@ -1,3 +1,7 @@
+* [![CircleCI](https://circleci.com/gh/craftninja/practice-exp-app.svg?style=svg)](https://circleci.com/gh/craftninja/practice-exp-app)
+* [![Maintainability](https://api.codeclimate.com/v1/badges/2cbe1136e57e26ca6749/maintainability)](https://codeclimate.com/github/craftninja/practice-exp-app/maintainability)
+* [![Test Coverage](https://api.codeclimate.com/v1/badges/2cbe1136e57e26ca6749/test_coverage)](https://codeclimate.com/github/craftninja/practice-exp-app/test_coverage)
+
 # README
 
 ### messing around with the newer versions of things, this may end up functionally identical to node express api but with sessions.
@@ -8,6 +12,11 @@
 * Create databases: `$ createdb practice_exp_app_test` AND `$ createdb practice_exp_app_development`
 * Run tests: `$ yarn test`
 * Run linter: `$ yarn lint`
+* Run coverage tools:
+  * see in terminal: `$ yarn coverage`
+  * see interactive version in browser:
+      1. `$ yarn report`
+      1. copy the full path of `practice-exp-app/coverage/lcov-report/index.html` and dump it into the "url" of a browser
 * Stand it up: `$ yarn start`
 
 ### curl
