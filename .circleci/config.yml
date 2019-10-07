@@ -1,4 +1,4 @@
-#version: 2
+version: 2
 jobs:
   build:
     docker:
@@ -7,6 +7,7 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: user
           NODE_ENV: test
+          SESSION_SECRET: sleepy_chihuahua
           TEST_DATABASE_URL: postgres://localhost/exp_starter_api_test
       - image: circleci/postgres:10.5
         environment:
