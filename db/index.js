@@ -1,7 +1,7 @@
 const { Pool } = require('pg');
 
-const config = require('../dbConfig');
-
-const pool = new Pool(config);
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 exports.query = (text, params) => pool.query(text, params);

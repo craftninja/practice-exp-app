@@ -13,7 +13,7 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.me = async (req, res, next) => {
+exports.me = async (req, res) => {
   const user = await User.find(req.session.userId);
   const serializedUser = await userSerializer(user);
   res.json({ user: serializedUser });
