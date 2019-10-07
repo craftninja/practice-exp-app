@@ -2,6 +2,9 @@
   "name": "practice-exp-app",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=12.10.0"
+  },
   "scripts": {
     "coverage": "nyc mocha --recursive",
     "db:createMigration": "node ./lib/createMigrations.js",
