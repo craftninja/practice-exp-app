@@ -1,27 +1,31 @@
 # README
 
-### messing around with the newer versions of things, this may end up functionally identical to node express api.
+### messing around with the newer versions of things, this may end up functionally identical to node express api but with sessions.
 
 ### get this puppy up and running:
 * Fork, Clone, and yarn install
-* run tests: `$ yarn test`
-* run linter: `$ yarn lint`
-* stand it up: `$ yarn start`
+* Copy `.env.example` to `.env` and update any necessary envs
+* Create databases: `$ createdb practice_exp_app_test` AND `$ createdb practice_exp_app_development`
+* Run tests: `$ yarn test`
+* Run linter: `$ yarn lint`
+* Stand it up: `$ yarn start`
 
 ### curl
 * No cookies: `$ curl http://localhost:3000/`
-* store a cookie to reuse: `$ curl -c ./tmp/curlCookies http://localhost:3000/`
-* use a stored cookie: `$ curl -b ./tmp/curlCookies http://localhost:3000/`
+* Sign up and store a cookie to reuse: `$ curl -c ./tmp/curlCookies -X POST -H "Content-Type: application/json" -d '{"email":"elowyn@example.com", "password": "password", "firstName": "Elowyn", "lastName": "Platzer Bartel", "birthYear": "2015", "student": "true"}' http://localhost:3000/users`
+* use a stored cookie: `$ curl -b ./tmp/curlCookies http://localhost:3000/users/me`
 
 ### references
 * [Express](https://expressjs.com/)
 * [Mocha](https://mochajs.org)
 * [Chai (just using expect for now... might switch to expect)](https://www.chaijs.com)
+* [PG (aka node-postgres)](https://node-postgres.com/)
+* [express-session](https://www.npmjs.com/package/express-session) and [connect-pg-simple](https://www.npmjs.com/package/connect-pg-simple)
 * [How to use cookies with curl](https://makandracards.com/makandra/48262-how-to-use-cookies-with-curl)
 * [Stop using JWT for sessions](http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/)
 
 
-### how did this get made?
+### how did this get started?
 
 1. barebones structure
     * `$ npx express-generator --no-view --git practice-exp-app`, cd into directory, and open in text editor

@@ -1,15 +1,17 @@
 const request = require('supertest');
 const { expect } = require('chai');
 
+require('../helpers/testSetup');
+
 const app = require('../../app.js');
 
-describe('User', async () => {
-  it('root path returns reminder to update route', async () => {
+describe('Root path', async () => {
+  it('returns greeting', async () => {
     const res = await request(app)
-      .get('/users')
+      .get('/')
       .expect(200);
 
     expect(res.err).to.be.undefined; // eslint-disable-line no-unused-expressions
-    expect(res.text).to.equal('respond with a resource');
+    expect(res.text).to.equal('oh hai!');
   });
 });

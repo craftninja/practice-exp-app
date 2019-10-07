@@ -3,18 +3,27 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "db:createMigration": "node ./lib/createMigrations.js",
+    "db:migrate": "node postgrator.js",
+    "db:migrate:test": "NODE_ENV=test node postgrator.js",
     "lint": "eslint --ignore-path .gitignore .",
     "start": "node ./bin/www",
-    "test": "mocha --recursive"
+    "test": "mocha --recursive --exit"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-pg-simple": "^6.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "morgan": "~1.9.1"
+    "express-session": "^1.16.2",
+    "morgan": "~1.9.1",
+    "pg": "^7.12.1",
+    "postgrator": "^3.10.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "dotenv": "^8.1.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
