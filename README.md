@@ -8,6 +8,11 @@
 * Create databases: `$ createdb practice_exp_app_test` AND `$ createdb practice_exp_app_development`
 * Run tests: `$ yarn test`
 * Run linter: `$ yarn lint`
+* Run coverage tools:
+  * see in terminal: `$ yarn coverage`
+  * see interactive version in browser:
+      1. `$ yarn report`
+      1. copy the full path of `practice-exp-app/coverage/lcov-report/index.html` and dump it into the "url" of a browser
 * Stand it up: `$ yarn start`
 
 ### curl

@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "coverage": "nyc mocha --recursive",
     "db:createMigration": "node ./lib/createMigrations.js",
     "db:migrate": "node postgrator.js",
     "db:migrate:test": "NODE_ENV=test node postgrator.js",
     "lint": "eslint --ignore-path .gitignore .",
+    "report": "nyc report --reporter=lcov",
     "start": "node ./bin/www",
     "test": "mocha --recursive --exit"
   },
@@ -28,6 +30,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "mocha": "^6.2.0",
+    "nyc": "^14.1.1",
     "supertest": "^4.0.2"
   }
 }
